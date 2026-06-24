@@ -1,0 +1,25 @@
+---
+title: "Hello, {{name}}"
+order: 1
+summary: "Your first program — and why programming is just giving instructions."
+---
+
+<LazyPyodideRepl initialCode={`print("Hello, {{name}}!")\nprint("Hello, {{sibling}}!")`} />
+
+Run that. Two lines appeared. That's it — you just ran a real program.
+
+A computer only does what you tell it, in the order you tell it. Each line above is an **instruction**: "print this text." The computer reads top to bottom and does exactly what it says, nothing more.
+
+`print(...)` is a **function** — a built-in command that displays whatever you put between the parentheses. Text goes inside quotes, like `"Hello, {{name}}!"`. That's called a **string**.
+
+Try changing the text. Break it on purpose — delete a quote mark, see what happens. The red error message isn't a wall, it's the computer telling you exactly what it didn't understand. You'll get used to reading these fast.
+
+<Exercise title="Your turn">
+
+Make the computer print a message to yourself, then one to your sister or brother. Use your own words.
+
+<LazyPyodideRepl initialCode={`print("")\nprint("")`} />
+
+</Exercise>
+
+That's the whole loop you'll repeat for the rest of the course: write something, run it, see what happens, fix it. Next lesson, we give the computer things to remember.

@@ -1,0 +1,37 @@
+---
+title: "Lists and collections"
+order: 5
+summary: "Storing many things under one name, and looking them up."
+---
+
+You've already seen a list (`names = ["{{name}}", "{{sibling}}"]`). Now let's actually use one.
+
+<LazyPyodideRepl initialCode={`fruits = ["banana", "mango", "papaya"]\n\nprint(fruits)\nprint(fruits[0])\nprint(fruits[1])\nprint(len(fruits))`} />
+
+A **list** is an ordered collection. `fruits[0]` gets the *first* item — remember, counting starts at 0, so `[0]` is "mango"'s neighbor, not the second one. `len(fruits)` tells you how many items are in it.
+
+Lists can grow and shrink:
+
+<LazyPyodideRepl initialCode={`fruits = ["banana", "mango"]\nfruits.append("papaya")\nprint(fruits)\n\nfruits.remove("banana")\nprint(fruits)`} />
+
+`.append(...)` adds something to the end. `.remove(...)` takes the first matching item out. These are **methods** — functions that belong to a specific list, written with a dot.
+
+There's also the **dictionary** — instead of counting positions, you look things up by name:
+
+<LazyPyodideRepl initialCode={`student = {"name": "{{name}}", "age": {{age}}, "subject": "Biology"}\n\nprint(student["name"])\nprint(student["age"])`} />
+
+Think of a dictionary as labeled boxes instead of a numbered shelf. `student["age"]` means "open the box labeled age."
+
+Loop over a list the same way you looped over numbers:
+
+<LazyPyodideRepl initialCode={`scores = [88, 92, 79, 95]\n\ntotal = 0\nfor score in scores:\n    total = total + score\n\nprint(f"Average: {total / len(scores)}")`} />
+
+<Exercise title="Your turn">
+
+Make a list of your three favorite subjects. Loop over it and print each one with its position, like `"1. Python"`. Hint: `for i, subject in enumerate(subjects):` gives you both the position and the value — and `i` starts at 0, so you'll want `i + 1` to print starting from 1.
+
+<LazyPyodideRepl initialCode={`subjects = ["", "", ""]\n\nfor i, subject in enumerate(subjects):\n    print(f"{i + 1}. {subject}")`} />
+
+</Exercise>
+
+Next lesson: functions — teaching the computer a new trick it can reuse.

@@ -1,0 +1,33 @@
+---
+title: "Variables and strings"
+order: 2
+summary: "Giving the computer a memory — names for things."
+---
+
+Last lesson the computer forgot everything the moment it printed it. Today we give it a memory.
+
+<LazyPyodideRepl initialCode={`name = "{{name}}"\nage = {{age}}\nprint(name)\nprint(age)`} />
+
+`name = "{{name}}"` is a **variable**. Read it right to left: take `"{{name}}"`, and store it under the label `name`. Now anywhere below, `name` *is* `"{{name}}"` — you don't have to retype it.
+
+Notice `age = {{age}}` has no quotes. That's because `{{age}}` is a **number** (an `int`), not text. Quotes mean "this is a string, treat it as words, not math." Mix them up and Python will let you know.
+
+You can glue strings together with `+`, or build a sentence with an f-string:
+
+<LazyPyodideRepl initialCode={`name = "{{sibling}}"\nage = {{siblingAge}}\nprint(f"{name} is {age} years old.")`} />
+
+That `f"..."` is an **f-string** — the `f` before the quotes means "look inside the curly braces and fill in the variables." It's the cleanest way to mix text and values, and you'll use it constantly.
+
+Variables can change. That's the whole point of the word "variable":
+
+<LazyPyodideRepl initialCode={`score = 0\nprint(score)\nscore = score + 10\nprint(score)`} />
+
+<Exercise title="Your turn">
+
+Make three variables: your name, your age, and your favorite subject. Print a sentence using all three in one f-string.
+
+<LazyPyodideRepl initialCode={`name = ""\nage = 0\nsubject = ""\n\nprint(f"")`} />
+
+</Exercise>
+
+Next lesson: teaching the computer to make decisions — to do different things depending on what's true.

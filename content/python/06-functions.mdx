@@ -1,0 +1,35 @@
+---
+title: "Functions"
+order: 6
+summary: "Teaching the computer a new trick, once, and reusing it forever."
+---
+
+You've used `print()` and `len()` since lesson 1 — those are functions someone else already wrote. Today you write your own.
+
+<LazyPyodideRepl initialCode={`def greet(name):\n    print(f"Hello, {name}!")\n\ngreet("{{name}}")\ngreet("{{sibling}}")`} />
+
+`def greet(name):` defines a new function called `greet` that takes one input — `name` — called a **parameter**. Everything indented underneath is what it does each time it's called. `greet("{{name}}")` is a **call** — "run that recipe, using `\"{{name}}\"` for `name`."
+
+Notice you wrote the logic once but used it twice. That's the entire point of a function: write it once, call it as many times as you want.
+
+Functions can hand a value back with `return`:
+
+<LazyPyodideRepl initialCode={`def square(number):\n    return number * number\n\nresult = square(7)\nprint(result)`} />
+
+`return` is different from `print` — `print` just displays something and the value disappears. `return` hands the value back so you can store it in a variable and use it later, like `result` above.
+
+Functions can take more than one parameter, and can have defaults:
+
+<LazyPyodideRepl initialCode={`def power(base, exponent=2):\n    return base ** exponent\n\nprint(power(3))\nprint(power(3, 3))`} />
+
+`exponent=2` means "if nobody says otherwise, use 2." `power(3)` uses the default; `power(3, 3)` overrides it.
+
+<Exercise title="Your turn">
+
+Write a function `is_even(number)` that returns `True` if a number is even, `False` otherwise. Test it on a few numbers.
+
+<LazyPyodideRepl initialCode={`def is_even(number):\n    return number % 2 == 0\n\nprint(is_even(4))\nprint(is_even(7))`} />
+
+</Exercise>
+
+You now have everything you need for your first real project. Next lesson: a quiz game, built from scratch.

@@ -1,0 +1,82 @@
+---
+title: "Working with data"
+order: 9
+summary: "pandas — handling real, messy, spreadsheet-shaped data in code."
+---
+
+Everything you've built so far works on small, tidy lists. Real data — scores, dates, survey answers — comes in big messy tables. `pandas` is the tool nearly every Python data project uses to handle that.
+
+This lesson loads a bigger package, so the first run will take a little longer than usual.
+
+<LazyPyodideRepl
+  packages={["pandas"]}
+  initialCode={`import pandas as pd
+
+data = {
+    "name": ["Rodas", "Yohana", "Mekdes", "Samuel"],
+    "subject": ["Python", "Python", "Biology", "History"],
+    "score": [92, 88, 76, 95],
+}
+
+df = pd.DataFrame(data)
+print(df)`}
+/>
+
+A `DataFrame` is a table — rows and columns, like a spreadsheet, but you can filter, sort, and calculate on it with code instead of clicking around.
+
+<LazyPyodideRepl
+  packages={["pandas"]}
+  initialCode={`import pandas as pd
+
+data = {
+    "name": ["Rodas", "Yohana", "Mekdes", "Samuel"],
+    "subject": ["Python", "Python", "Biology", "History"],
+    "score": [92, 88, 76, 95],
+}
+
+df = pd.DataFrame(data)
+
+print(df["score"].mean())
+print()
+print(df[df["score"] > 85])`}
+/>
+
+`df["score"]` pulls out a single column. `.mean()` is a method that computes the average — no loop required, pandas does it internally. `df[df["score"] > 85]` is a **filter**: "give me only the rows where the score column is above 85." Read it as a sentence and it makes sense.
+
+Sorting is just as direct:
+
+<LazyPyodideRepl
+  packages={["pandas"]}
+  initialCode={`import pandas as pd
+
+data = {
+    "name": ["Rodas", "Yohana", "Mekdes", "Samuel"],
+    "score": [92, 88, 76, 95],
+}
+
+df = pd.DataFrame(data)
+sorted_df = df.sort_values("score", ascending=False)
+print(sorted_df)`}
+/>
+
+<Exercise title="Your turn">
+
+Build a small DataFrame of 4–5 made-up students with a `score` column. Print only the students who scored above the average. Hint: you can use `df["score"].mean()` inside your filter.
+
+<LazyPyodideRepl
+  packages={["pandas"]}
+  initialCode={`import pandas as pd
+
+data = {
+    "name": ["", "", "", ""],
+    "score": [0, 0, 0, 0],
+}
+
+df = pd.DataFrame(data)
+average = df["score"].mean()
+print(df[df["score"] > average])`}
+/>
+
+</Exercise>
+
+One lesson left — and it's yours to design. Next: your final project.

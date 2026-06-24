@@ -1,0 +1,73 @@
+---
+title: "First project: a quiz game"
+order: 7
+summary: "Putting variables, decisions, loops, lists, and functions together."
+---
+
+This is the first lesson with no new syntax — just you, combining everything from lessons 1 through 6 into something real.
+
+A quick note: our in-browser editor can't pause and wait for you to type an answer like a real terminal can, so instead of typing answers live, we'll store the player's answers in a list ahead of time and have the program check them. Real quiz apps often work exactly this way — answers collected first, checked after.
+
+<LazyPyodideRepl initialCode={`questions = [
+    {"question": "Capital of Ethiopia?", "answer": "Addis Ababa"},
+    {"question": "2 + 2 * 2?", "answer": "6"},
+    {"question": "Largest planet?", "answer": "Jupiter"},
+]
+
+player_answers = ["Addis Ababa", "6", "Saturn"]
+
+def run_quiz(questions, player_answers):
+    score = 0
+    for i, q in enumerate(questions):
+        print(q["question"])
+        if player_answers[i] == q["answer"]:
+            print("Correct!")
+            score = score + 1
+        else:
+            print(f"Nope — the answer was {q['answer']}")
+        print()
+    return score
+
+score = run_quiz(questions, player_answers)
+print(f"Final score: {score} / {len(questions)}")`} />
+
+Read it slowly — every piece is something you already know:
+
+- a **list of dictionaries** holds the questions and correct answers (lesson 5)
+- a **function** `run_quiz` takes the quiz and the answers, and runs it (lesson 6)
+- a **for loop** with `enumerate` goes through each question (lessons 4 & 5)
+- an **if/else** checks whether the answer matches (lesson 3)
+- a **variable** `score` keeps count, updated each time around the loop (lesson 2)
+
+Nothing here is new. This is what programming actually looks like — small ideas, stacked.
+
+<Exercise title="Your turn">
+
+Write your own 3-question quiz about something you know well — a game, a show, a sport. Change the questions, answers, and try giving yourself a wrong answer on purpose to see the "Nope" message.
+
+<LazyPyodideRepl initialCode={`questions = [
+    {"question": "", "answer": ""},
+    {"question": "", "answer": ""},
+    {"question": "", "answer": ""},
+]
+
+player_answers = ["", "", ""]
+
+def run_quiz(questions, player_answers):
+    score = 0
+    for i, q in enumerate(questions):
+        print(q["question"])
+        if player_answers[i] == q["answer"]:
+            print("Correct!")
+            score = score + 1
+        else:
+            print(f"Nope — the answer was {q['answer']}")
+        print()
+    return score
+
+score = run_quiz(questions, player_answers)
+print(f"Final score: {score} / {len(questions)}")`} />
+
+</Exercise>
+
+Next lesson: saving things permanently, by reading and writing files.

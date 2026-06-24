@@ -1,0 +1,39 @@
+---
+title: "Making decisions"
+order: 3
+summary: "if / else — doing different things depending on what's true."
+---
+
+Right now your programs run the same way every time. Real programs branch — they react to what's happening.
+
+<LazyPyodideRepl initialCode={`age = 15\n\nif age >= 13:\n    print("Teenager")\nelse:\n    print("Not a teenager")`} />
+
+`if age >= 13:` asks a yes/no question. If it's true, the **indented** lines under it run. If it's false, Python skips to `else:` instead. Indentation isn't decoration in Python — it's how the computer knows which lines belong to which branch. Four spaces, every time.
+
+The question itself uses comparison operators:
+
+- `==` equal to (two equals signs — one `=` means "store", two means "compare")
+- `!=` not equal to
+- `>`, `<`, `>=`, `<=` — bigger, smaller, etc.
+
+You can chain more conditions with `elif` ("else if"):
+
+<LazyPyodideRepl initialCode={`score = 72\n\nif score >= 90:\n    print("A")\nelif score >= 80:\n    print("B")\nelif score >= 70:\n    print("C")\nelse:\n    print("Needs work")`} />
+
+Python checks each `elif` top to bottom and stops at the first one that's true. Order matters.
+
+You can also combine conditions with `and` / `or`:
+
+<LazyPyodideRepl initialCode={`temperature = 28\nis_sunny = True\n\nif temperature > 25 and is_sunny:\n    print("Beach day")\nelse:\n    print("Maybe not")`} />
+
+`True` and `False` (capital letters, no quotes) are **booleans** — the actual yes/no values Python uses internally.
+
+<Exercise title="Your turn">
+
+Write a program that checks a number and prints `"Even"` or `"Odd"`. Hint: `number % 2` gives the remainder after dividing by 2 — it's `0` for even numbers.
+
+<LazyPyodideRepl initialCode={`number = 7\n\nif number % 2 == 0:\n    print("Even")\nelse:\n    print("Odd")`} />
+
+</Exercise>
+
+Next: doing something many times without retyping it — loops.

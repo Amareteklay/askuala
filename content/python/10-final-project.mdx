@@ -1,0 +1,45 @@
+---
+title: "Final project: their choice"
+order: 10
+summary: "Everything you've learned, pointed at something you actually want to build."
+---
+
+No new syntax today. You already have what you need:
+
+- **variables** to hold things (lesson 2)
+- **if/else** to make decisions (lesson 3)
+- **loops** to repeat (lesson 4)
+- **lists and dictionaries** to organize data (lesson 5)
+- **functions** to package logic you can reuse (lesson 6)
+- **files** to remember things between runs (lesson 8)
+- **pandas**, if your project involves real data (lesson 9)
+
+This lesson is a starting point, not a finished thing. Pick one and make it yours — change the names, the rules, the questions, the data. The best way to learn what you don't know yet is to hit it while building something you care about.
+
+### Idea 1 — A bigger quiz game
+
+Take the quiz from lesson 7 and grow it: more questions, a category you pick, maybe a function that gives a grade based on the final score.
+
+<LazyPyodideRepl initialCode={`def grade(score, total):\n    percent = score / total * 100\n    if percent >= 90:\n        return "A"\n    elif percent >= 75:\n        return "B"\n    elif percent >= 60:\n        return "C"\n    else:\n        return "Keep practicing"\n\nprint(grade(8, 10))`} />
+
+### Idea 2 — A name-based generator
+
+Write a function that takes a name and generates something fun from it — a "power level," a fortune, an anagram check. Mess with strings.
+
+<LazyPyodideRepl initialCode={`def power_level(name):\n    total = 0\n    for letter in name:\n        total = total + ord(letter)\n    return total % 100\n\nprint(f"{{name}}'s power level: {power_level('{{name}}')}")\nprint(f"{{sibling}}'s power level: {power_level('{{sibling}}')}")`} />
+
+### Idea 3 — A tiny tracker
+
+Use what you learned about files in lesson 8 to build something that logs entries over time — workouts, books read, money saved — and reads them back with a summary.
+
+<LazyPyodideRepl initialCode={`entries = []\n\ndef log_entry(text):\n    entries.append(text)\n    with open("tracker.txt", "a") as file:\n        file.write(text + "\\n")\n\nlog_entry("Read 20 pages")\nlog_entry("Ran 2km")\n\nwith open("tracker.txt", "r") as file:\n    print(file.read())`} />
+
+<Exercise title="Build it">
+
+Pick one idea — or something entirely your own — and build it below. Take your time. There's no wrong way to do this one.
+
+<LazyPyodideRepl initialCode={`# Your project starts here\n`} packages={["pandas"]} />
+
+</Exercise>
+
+Whatever you build, you did it with real Python — the same language used to build the apps and tools you use every day. That's the whole point.

@@ -1,0 +1,35 @@
+---
+title: "Reading and writing files"
+order: 8
+summary: "Making data outlive the program that created it."
+---
+
+Everything so far disappears the moment your program ends. Files are how programs remember things between runs.
+
+<LazyPyodideRepl initialCode={`with open("notes.txt", "w") as file:\n    file.write("Hello from Python\\n")\n    file.write("This file was written by code.\\n")\n\nwith open("notes.txt", "r") as file:\n    contents = file.read()\n\nprint(contents)`} />
+
+`open("notes.txt", "w")` opens a file for **w**riting (creating it if it doesn't exist, erasing it if it does). `open("notes.txt", "r")` opens it for **r**eading. The `with ... as file:` wrapper makes sure the file is properly closed when you're done with it — always use it.
+
+`\n` inside a string is a **newline character** — it doesn't print as text, it moves to the next line.
+
+You can also build up the file line by line from a list:
+
+<LazyPyodideRepl initialCode={`scores = [88, 92, 79, 95]\n\nwith open("scores.txt", "w") as file:\n    for score in scores:\n        file.write(f"{score}\\n")\n\nwith open("scores.txt", "r") as file:\n    for line in file:\n        print("Score:", line.strip())`} />
+
+`.strip()` removes extra whitespace — useful because reading a file line by line keeps the `\n` at the end unless you strip it off.
+
+A practical pattern: append instead of overwrite, using `"a"` mode, so a log file grows instead of getting wiped each run:
+
+<LazyPyodideRepl initialCode={`with open("log.txt", "a") as file:\n    file.write("Program ran.\\n")\n\nwith open("log.txt", "r") as file:\n    print(file.read())`} />
+
+Run that cell a few times and watch the log grow — each run adds a line instead of replacing the file.
+
+<Exercise title="Your turn">
+
+Write a small list of your own (favorite movies, games, whatever) to a file, one per line, then read it back and print each one with a number in front.
+
+<LazyPyodideRepl initialCode={`items = ["", "", ""]\n\nwith open("list.txt", "w") as file:\n    for item in items:\n        file.write(f"{item}\\n")\n\nwith open("list.txt", "r") as file:\n    for i, line in enumerate(file):\n        print(f"{i + 1}. {line.strip()}")`} />
+
+</Exercise>
+
+Next lesson: pandas — handling real, messy data like a spreadsheet, in code.
