@@ -4,22 +4,32 @@ order: 1
 summary: "Your first program — and why programming is just giving instructions."
 ---
 
+A program is just a list of instructions, written in an order the computer follows exactly, top to bottom. The first instruction you'll learn is the one almost every program uses somewhere: **show this text on the screen.**
+
+In Python, that instruction is written like this:
+
+```
+print("Hello!")
+```
+
+Read it left to right: `print` is the name of the instruction — it means "display something." The parentheses `( )` hold whatever you want displayed. And the quotation marks `" "` wrap the actual text — they tell the computer "everything between these marks is just words, not an instruction, don't try to understand it, just show it." Text wrapped in quotes like this is called a **string**.
+
+So `print("Hello!")` means, in plain words: *show the word "Hello!" on the screen.* That's the whole sentence. Nothing hidden, nothing assumed.
+
+Below is a real, live Python editor with two lines like that one — already filled in with your name and your sibling's. Read both lines first, and check that you can point to the instruction, the parentheses, and the quotes in each one. Then press **Run** and watch the computer do exactly what they say.
+
 <LazyPyodideRepl initialCode={`print("Hello, {{name}}!")\nprint("Hello, {{sibling}}!")`} />
 
-Run that. Two lines appeared. That's it — you just ran a real program.
+Two lines appeared below the box, in the same order you wrote them. The computer didn't guess, or improvise — it read your two instructions and carried them out exactly, one after another. That's all a program is.
 
-A computer only does what you tell it, in the order you tell it. Each line above is an **instruction**: "print this text." The computer reads top to bottom and does exactly what it says, nothing more.
-
-`print(...)` is a **function** — a built-in command that displays whatever you put between the parentheses. Text goes inside quotes, like `"Hello, {{name}}!"`. That's called a **string**.
-
-Try changing the text. Break it on purpose — delete a quote mark, see what happens. The red error message isn't a wall, it's the computer telling you exactly what it didn't understand. You'll get used to reading these fast.
+Try this: go back up, delete one of the quotation marks, and press Run again. You'll get a red error message. Don't panic — that message isn't the computer breaking, it's the computer telling you precisely what it no longer understands, because without that quote mark it can't tell where your sentence starts or ends. Put it back and you're fine. You'll learn to read these fast.
 
 <Exercise title="Your turn">
 
-Make the computer print a message to yourself, then one to your sister or brother. Use your own words.
+In the box below, change the text inside the quotes — replace `"type something here"` with your own message. Leave the quotation marks exactly where they are; only change what's between them.
 
-<LazyPyodideRepl initialCode={`print("")\nprint("")`} />
+<LazyPyodideRepl initialCode={`print("type something here")\nprint("type something else here")`} />
 
 </Exercise>
 
-That's the whole loop you'll repeat for the rest of the course: write something, run it, see what happens, fix it. Next lesson, we give the computer things to remember.
+That's the whole loop you'll repeat for the rest of the course: read an instruction, run it, see what happens, fix it if it breaks. Next lesson, we give the computer things to remember.
