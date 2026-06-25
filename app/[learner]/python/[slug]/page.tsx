@@ -68,7 +68,11 @@ export default function LessonPage({
       </header>
 
       <article className="prose prose-neutral mt-8 max-w-none prose-headings:text-[var(--ink)] prose-p:text-[var(--ink)] prose-li:text-[var(--ink)] prose-strong:text-[var(--ink)]">
-        <MDXRemote source={content!} components={mdxComponents} />
+        <MDXRemote
+          source={content!}
+          components={mdxComponents}
+          options={{ mdxOptions: {}, blockJS: false }}
+        />
       </article>
 
       <nav className="mt-12 flex items-center justify-between border-t border-neutral-200 pt-6">
