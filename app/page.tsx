@@ -10,8 +10,8 @@ export default function Home() {
 
       <div className={styles.page}>
         <div className={styles.headingWrap}>
-          <p className={styles.eyebrow}>summer, 2026</p>
-          <h1 className={styles.heading}>Whose desk is this?</h1>
+          <h1 className={styles.heading}>Pick your name, and let&apos;s begin.</h1>
+          <span className={styles.headingUnderline} />
         </div>
 
         <div className={styles.cards}>
@@ -19,31 +19,27 @@ export default function Home() {
             href="/rodas"
             name="Rodas"
             initial="R"
-            subtitle="age 15"
             accent="amber"
-            stats={["Python · loops & functions", "Biology · cell structures"]}
+            note="Pick up where you left off."
           />
           <ProfileCard
             href="/yohana"
             name="Yohana"
             initial="Y"
-            subtitle="age 13"
             accent="teal"
-            stats={["Python · first variables", "Geography · flashcards"]}
+            note="Pick up where you left off."
           />
           <ProfileCard
             href="/sophia"
             name="Sophia"
             initial="S"
-            subtitle="age 7"
             accent="rose"
-            stats={["Counting practice", "Coloring corner"]}
+            note="Time to play!"
           />
         </div>
 
         <p className={styles.footerLine}>
-          No password needed — just <strong>pick your name</strong> to pick up
-          where you left off.
+          No rush, no grades — just curiosity, one page at a time.
         </p>
       </div>
     </>

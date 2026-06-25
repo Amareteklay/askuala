@@ -5,8 +5,7 @@ type ProfileCardProps = {
   href: string;
   name: string;
   initial: string;
-  subtitle: string;
-  stats: string[];
+  note: string;
   accent?: "amber" | "teal" | "rose";
 };
 
@@ -14,8 +13,7 @@ export default function ProfileCard({
   href,
   name,
   initial,
-  subtitle,
-  stats,
+  note,
   accent = "amber",
 }: ProfileCardProps) {
   return (
@@ -29,15 +27,7 @@ export default function ProfileCard({
       </span>
       <div className={styles.cardBody}>
         <p className={styles.cardName}>{name}</p>
-        <p className={styles.cardSub}>{subtitle}</p>
-        <div className={styles.cardStats}>
-          {stats.map((stat) => (
-            <div className={styles.statLine} key={stat}>
-              <span className={styles.statDot} />
-              {stat}
-            </div>
-          ))}
-        </div>
+        <p className={styles.cardNote}>{note}</p>
       </div>
       <div className={styles.cardFooter}>
         <span className={styles.continueLabel}>continue</span>
